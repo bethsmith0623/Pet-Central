@@ -3,11 +3,24 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+//require middleware for Passport use
+var session = require('express-session');
+var passport = require('passport');
 
+//load the env vars
+require('dotenv').config();
+
+//create the Express app
+var app = express();
+
+//connect to the MongoDB with mongoose
+require('./config/database');
+//require Passport here
+require('./config/passport');
+
+//require routes here
 var indexRouter = require('./routes/index');
 var petsRouter = require('./routes/pets');
-
-var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -18,6 +31,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+//session middleware for Passport use mount after cookieParser
+app.use(session({
+  secret: 'SEIRocks!',
+  resave: false,
+  saveUninitialized: true
+}));
+
+//mount Passport after session middleware but before local routes
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 app.use('/', indexRouter);
 app.use('/pets', petsRouter);
