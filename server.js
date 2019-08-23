@@ -21,7 +21,7 @@ require('./config/passport');
 //require routes here
 var indexRouter = require('./routes/index');
 var petsRouter = require('./routes/pets');
-var usersRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
 var providersRouter = require('./routes/providers');
 
 // view engine setup
@@ -47,7 +47,7 @@ app.use(passport.session());
 
 
 app.use('/', indexRouter);
-app.use('/', usersRouter);
+app.use('/users', usersRouter);
 app.use('/pets', petsRouter);
 app.use('/providers', providersRouter)
 
