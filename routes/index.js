@@ -19,7 +19,7 @@ router.get('/oauth2callback', passport.authenticate(
   'google',
   {
     successRedirect : '/users/index',
-    failureRedirect : '/index'
+    failureRedirect : '/'
   }
 ));
 
