@@ -8,15 +8,13 @@
     <h1>Welcome to <%= title %></h1>
 
       <nav>
-          <ul class="right">
-            <li>
+        <div>
             <% if (user) { %>
               <a href="/logout">Log Out</a>
             <% } else { %>
               <a href="/auth/google">Login with Google</a>
             <% } %>
-            </li>
-          </ul>
+        </div>
       </nav>
 
     <h3>Groomers, and Trainers, and Vets! Oh My!</h3>
