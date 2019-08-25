@@ -7,6 +7,38 @@
   <title>Pet Central</title>
 </head>
 <body>
-  <h1>New Pet</h1>
+  <h1>Add a New Pet to Your Kennel</h1>
+  <form action="/pets" method="POST">
+
+    <label>Name</label>
+    <input type="text" name="name">
+
+    <label>Type</label>
+    <select name="type">
+      <option value="bird">Bird</option>
+      <option value="cat">Cat</option>
+      <option value="dog">Dog</option>
+      <option value="fish">Fish</option>
+      <option value="lizard">Lizard</option>
+      <option value="snake">Snake</option>
+      <option value="other">Other</option>
+    </select>
+   
+
+    <label>Breed</label>
+    <input type="text" name="breed">
+
+    <label>Age</label>
+    <input type="number" name="age">
+
+    <label>Health Conditions</label>
+    <input type="text" name="health">
+
+    <label>Medications</label>
+    <input type="text" name="meds">
+
+    <input type="submit" value="Add Pet to my Kennel">
+  </form>
+
 </body>
 </html>

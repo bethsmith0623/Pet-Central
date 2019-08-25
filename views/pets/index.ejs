@@ -7,6 +7,19 @@
   <title>Pet Central</title>
 </head>
 <body>
-  <h1>Pet Index</h1>
+  <h1>Pet Central Kennel</h1>
+
+  <table id="kennel">
+    <tbody>
+      <% pets.forEach(function(pet){ %>
+        <tr>
+          <td><%= pet.name %></td>
+          <td><%= pet.type %></td>
+          <td><a href="/pets/<%= p._id %>">Details</a></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  
 </body>
 </html>
