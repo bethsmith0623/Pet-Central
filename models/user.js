@@ -5,8 +5,14 @@ var userSchema = new mongoose.Schema ({
   name: String,
   email: String,
   googleId: String,
-  pets: [String],
-  providers: [String],
+  pets: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Pets'
+  }],
+  providers: [{
+    type: Schema.Types.ObjectId, 
+    ref: 'Provider'
+  }],
 },{
   timestamps: true
 });

@@ -2,9 +2,34 @@ var Pet = require('../models/pet');
 
 module.exports = {
   index,
+  show, 
   new: newPet,
   create,
-  show
+  delete: deletePet,
+  // edit, 
+  // update
+};
+
+// function update(req, res) {
+//   Pet.update(req.params.id, req.body);
+//   res.redirect('/pets/:id');
+// }
+
+// function edit(req, res) {
+//   Pet.findById (req.params.id, function(err, pet) {
+//     res.render(`/pets/${pet._id}edit`, {
+//       pet: Pet.updateOne(req.params.id),
+//       idx: req.params.id
+//     });
+//   });
+// };
+
+function deletePet(req, res){
+  Pet.findByIdAndDelete(req.params.id, function(err, pets){
+    console.log(pets)
+    // pets.splice(id, 1);
+    res.redirect('/pets/index');
+  })
 };
 
 function index(req, res) {

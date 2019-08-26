@@ -11,11 +11,15 @@
 
   <table id="kennel">
     <tbody>
-      <% pets.forEach(function(pet){ %>
+      <% pets.forEach(function(pet, idx){ %>
+
         <tr>
           <td><%= pet.name %></td>
           <td><%= pet.type %></td>
           <td><a href="/pets/<%= pet._id %>">Details</a></td>
+          <td><form action="/pets/<%= pet._id %>?_method=DELETE" method="POST" class="delete-form">
+          <button type="submit">X</button>
+          </form></td>
         </tr>
       <% }); %>
     </tbody>
