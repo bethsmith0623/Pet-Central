@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 var petSchema = new mongoose.Schema ({
   name: {
@@ -13,9 +14,12 @@ var petSchema = new mongoose.Schema ({
   age: {
     type: Number,
     default: 0},
-  healthConditions: [],
-  medications: [],
-  providers: [],
+  healthConditions: [String],
+  medications: [String],
+  providers: [{
+    type: Schema.Types.ObjectId, 
+    ref: 'Provider'
+  }],
 },{
   timestamps: true
 });

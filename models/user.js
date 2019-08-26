@@ -1,11 +1,12 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 var userSchema = new mongoose.Schema ({
   name: String,
   email: String,
   googleId: String,
-  pets: [],
-  providers: [],
+  pets: [String],
+  providers: [String],
 },{
   timestamps: true
 });

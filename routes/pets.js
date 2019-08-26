@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
   res.send('./pets/index');
 });
 
-router.get('/', petsCtrl.index);
+router.get('/index', petsCtrl.index);
 router.get('/new', petsCtrl.new);
 router.get('/:id', petsCtrl.show);
 router.post('/', petsCtrl.create);

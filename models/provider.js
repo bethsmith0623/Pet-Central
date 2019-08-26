@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-var providerSchema = new mongoose.Schema ({
+var providerSchema = new Schema ({
   name: {
     type: String,
     required: true},
@@ -8,7 +9,7 @@ var providerSchema = new mongoose.Schema ({
     type: ['Vet', 'Groomer', 'Trainer', 'Sitter', 'Walker', 'Boarder', 'Store', 'Other'],
     required: true},
   services: {
-    type: [],
+    type: [String],
     required: true},
 },{
   timestamps: true
