@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pet Central</title>
+</head>
+<body>
+  <h1>Add a New Pet to Your Kennel</h1>
+  <form action="/pets" method="POST">
+
+    <label>Name</label>
+    <input type="text" name="name">
+
+    <label>Type</label>
+    <select name="type">
+      <option value="bird">Bird</option>
+      <option value="cat">Cat</option>
+      <option value="dog">Dog</option>
+      <option value="fish">Fish</option>
+      <option value="lizard">Lizard</option>
+      <option value="snake">Snake</option>
+      <option value="other">Other</option>
+    </select>
+   
+
+    <label>Breed</label>
+    <input type="text" name="breed">
+
+    <label>Age</label>
+    <input type="number" name="age">
+
+    <label>Health Conditions (use commas to separate)</label>
+    <input type="text" name="healthConditions">
+
+    <label>Medications (use commas to separate)</label>
+    <input type="text" name="medications">
+
+    <input type="submit" value="Add Pet to my Kennel">
+  </form>
+
+</body>
+</html>
