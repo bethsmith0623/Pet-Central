@@ -15,4 +15,4 @@ var providerSchema = new Schema ({
   timestamps: true
 });
 
-module.exports = mongoose.model('Provider', providerSchema);
+module.exports = mongoose.model('Provider', providerSchema, 'providers');

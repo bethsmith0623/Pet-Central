@@ -32,7 +32,11 @@ function deleteProvider(req, res) {
 }
 
 function newProvider(req,res) {
-  res.render('providers/new');
+  Provider.find({}, function(err, providers){
+    res.render('providers/new', {
+      pet: 'Add Provider', providers
+    });
+  });
 }
 
 function create(req, res) {

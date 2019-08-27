@@ -1,4 +1,5 @@
 var Pet = require('../models/pet');
+var User = require('../models/user');
 
 module.exports = {
   index,
@@ -33,13 +34,14 @@ function deletePet(req, res){
 };
 
 function index(req, res) {
-  Pet.find({}, function(err, pets) {
-    res.render('pets/index', {pets});
+  User.findById(req.user._id).populate('pets').exec(function(err, user) {
+    res.render('pets/index', {user});
   });
 };
 function show(req, res) {
-  Pet.findById (req.params.id, function(err, pet) {
-    console.log('pet', pet);
+  User.findById(req.user._id).
+    populate('pets').exec(function(err, user) {
+    console.log(req.user.pet);
     res.render('pets/show', {
       name: pet.name, 
       type: pet.type, 
@@ -54,6 +56,7 @@ function show(req, res) {
 }
 
 function newPet(req, res) {
+  
   res.render('pets/new');
 };
 
