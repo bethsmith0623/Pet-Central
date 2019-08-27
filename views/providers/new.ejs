@@ -7,6 +7,27 @@
   <title>Pet Central</title>
 </head>
 <body>
-  <h1>New Provider</h1>
+  <h1>Add a New Provider</h1>
+  <form action="/providers" method="POST">
+    <label>Name</label>
+    <input type="text" name="name" required>
+
+    <label>Type</label>
+    <select name="type" required>
+      <option value="Vet">Vet</option>
+      <option value="Groomer">Groomer</option>
+      <option value="Trainer">Trainer</option>
+      <option value="Sitter">Sitter</option>
+      <option value="Walker">Walker</option>
+      <option value="Boarder">Boarder</option>
+      <option value="Store">Store</option>
+      <option value="other">Other</option>
+    </select>
+
+    <label>Services (use commas to separate)</label>
+    <input type="text" name="services" required>
+
+    <input type="submit" value="Add Provider to Directory">
+  </form>
 </body>
 </html>
