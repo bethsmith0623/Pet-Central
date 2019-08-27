@@ -71,5 +71,5 @@ function create(req, res) {
     if (err) return res.redirect('pets/new');
     console.log(pet);
     res.redirect(`/pets/${pet._id}`);
-  })
+  });
 }

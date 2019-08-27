@@ -8,5 +8,25 @@
 </head>
 <body>
   <h1>Provider Index</h1>
+
+  <table id="directory">
+    <tbody>
+      <% providers.forEach(function(provider, idx){ %>
+
+        <tr>
+          <td><%= provider.name %></td> 
+          <td><%= provider.type %></td>      
+          <td><a href="/providers/<%= provider._id %>">Details</a></td>    
+          <td><form action="/providers/<%= provider._id %>?_method=DELETE" method="POST" class="delete-form">
+          <button type="submit">X</button>
+          </form></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <a href="/users/index">Go back to Home Page</a>
+  <a href="/providers/new">Add a New Provider</a>
+  <a href="/pets/index">Go to Kennel</a>
+
 </body>
 </html>
