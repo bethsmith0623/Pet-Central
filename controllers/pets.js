@@ -6,28 +6,28 @@ module.exports = {
   new: newPet,
   create,
   delete: deletePet,
-  // edit, 
-  // update
+  edit, 
+  update
 };
 
-// function update(req, res) {
-//   Pet.update(req.params.id, req.body);
-//   res.redirect('/pets/:id');
-// }
+function update(req, res) {
+  petID = req.params.id
+  Pet.findByIdAndUpdate(petID, req.body, 
+    {new:true}, function (err, pet){
+      res.redirect(`/pets/${petID}`);
+  })
+};
 
-// function edit(req, res) {
-//   Pet.findById (req.params.id, function(err, pet) {
-//     res.render(`/pets/${pet._id}edit`, {
-//       pet: Pet.updateOne(req.params.id),
-//       idx: req.params.id
-//     });
-//   });
-// };
+function edit(req, res) {
+  console.log(req.params.id);
+  Pet.findById(req.params.id, function(err, pet) {
+    res.render('pets/edit', {pet});
+    });
+  };
 
 function deletePet(req, res){
   Pet.findByIdAndDelete(req.params.id, function(err, pets){
     console.log(pets)
-    // pets.splice(id, 1);
     res.redirect('/pets/index');
   })
 };
@@ -45,6 +45,7 @@ function show(req, res) {
       type: pet.type, 
       breed: pet.breed, 
       age: pet.age, 
+      id: pet._id,
       healthConditions: pet.healthConditions, 
       medications: pet.medications,
       providers: pet.providers

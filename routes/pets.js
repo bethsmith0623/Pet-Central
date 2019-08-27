@@ -12,7 +12,7 @@ router.get('/new', petsCtrl.new);
 router.get('/:id', petsCtrl.show);
 router.post('/', petsCtrl.create);
 router.delete('/:id', petsCtrl.delete);
-// router.get('/:id/edit', petsCtrl.edit);
-// router.put('/:id', petsCtrl.update);
+router.get('/:id/edit', petsCtrl.edit);
+router.put('/:id', petsCtrl.update);
 
 module.exports = router;
