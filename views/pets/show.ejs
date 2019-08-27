@@ -9,23 +9,18 @@
 <body>
   <h1>Pet Detail</h1>
  <section id="pet-show-page">
-   <div>Name: </div>
-   <div><%= name %></div>
-   <div>Type:</div>
-   <div><%= type %></div>
-   <div>Breed:</div>
-   <div><%= breed %></div>
-   <div>Age:</div>
-   <div><%= age %></div>
-   <div>Health Conditions:</div>
-   <div><%= healthConditions.join(',') %></div>
-   <div>Medication:</div>
-   <div><%= medications.join(',') %></div>
-   <div>Providers:</div>
-   <div><%= providers.join(',') %></div>
+   <div>Name: <%= name %></div>
+   <div>Type: <%= type %></div>
+   <div>Breed: <%= breed %></div>
+   <div>Age: <%= age %></div>
+   <div>Health Conditions: <%= healthConditions.join(',') %></div>
+   <div>Medication: <%= medications.join(',') %></div>
+   <div>Providers: <%= providers.join(',') %></div>
+   
  </section>
  <a href="/pets/index"> Go back to Pet Index</a>
  <a href="/users/index">Go back to Home Page</a>
+ <a href="/pets/<%= id %>/edit">Edit Pet Detail</a>
  
 </body>
 </html>

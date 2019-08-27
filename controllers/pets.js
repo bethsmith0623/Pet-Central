@@ -2,9 +2,34 @@ var Pet = require('../models/pet');
 
 module.exports = {
   index,
+  show, 
   new: newPet,
   create,
-  show
+  delete: deletePet,
+  edit, 
+  update
+};
+
+function update(req, res) {
+  petID = req.params.id
+  Pet.findByIdAndUpdate(petID, req.body, 
+    {new:true}, function (err, pet){
+      res.redirect(`/pets/${petID}`);
+  })
+};
+
+function edit(req, res) {
+  console.log(req.params.id);
+  Pet.findById(req.params.id, function(err, pet) {
+    res.render('pets/edit', {pet});
+    });
+  };
+
+function deletePet(req, res){
+  Pet.findByIdAndDelete(req.params.id, function(err, pets){
+    console.log(pets)
+    res.redirect('/pets/index');
+  })
 };
 
 function index(req, res) {
@@ -20,6 +45,7 @@ function show(req, res) {
       type: pet.type, 
       breed: pet.breed, 
       age: pet.age, 
+      id: pet._id,
       healthConditions: pet.healthConditions, 
       medications: pet.medications,
       providers: pet.providers
