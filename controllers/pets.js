@@ -1,5 +1,6 @@
 var Pet = require('../models/pet');
 var User = require('../models/user');
+var Provider = require('../models/provider');
 
 module.exports = {
   index,
@@ -42,11 +43,13 @@ function index(req, res) {
 };
 
 function show(req, res) {
-  User.findById(req.user._id)
-  .populate('pets').exec(function(err, user) {
-    console.log(user)
-    res.render('pets/show', {
-      user
+  Pet.findById(req.params.id).populate('providers').exec(function(err, pet) {
+    Provider.find({_id: {$nin: pet.providers}}).exec(function(err, providers){
+      res.render('pets/show', {
+      pet,
+      user: req.user,
+      providers
+    })
     });
   });
 }
@@ -57,10 +60,10 @@ function newPet(req, res) {
 
 function create(req, res) {
 
-  req.body.healthConditions = req.body.healthConditions.replace(/\s*,\s*/g, ',');
-  if (req.body.healthConditions) req.body.healthConditions = req.body.healthConditions.split(',');
-  req.body.medications = req.body.medications.replace(/\s*,\s*/g, ',');
-  if (req.body.medications) req.body.medications = req.body.medications.split(',');
+  req.body.healthConditions = req.body.healthConditions.replace(/\s*,\s*/g, ', ');
+  if (req.body.healthConditions) req.body.healthConditions = req.body.healthConditions.split(', ');
+  req.body.medications = req.body.medications.replace(/\s*,\s*/g, ', ');
+  if (req.body.medications) req.body.medications = req.body.medications.split(',s');
   for(let key in req.body){
     if (req.body[key] === '') delete req.body[key];
   }

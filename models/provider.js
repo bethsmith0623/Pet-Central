@@ -11,6 +11,7 @@ var providerSchema = new Schema ({
   services: {
     type: [String],
     required: true},
+  
 },{
   timestamps: true
 });
