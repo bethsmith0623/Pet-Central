@@ -16,12 +16,18 @@
     <div>Health Conditions: <%= pet.healthConditions.join(',') %></div>
     <div>Medication: <%= pet.medications.join(',') %></div>
     <div>Providers: </div>
-    <!-- <ul>
+    <ul>
       <%- pet.providers.map(pr => `<li>${pr.name}</li>`).join(',') %>
-    </ul> -->
-    <a href="/pets/<%= pet._id %>/edit">Edit Pet Detail</a>
-   
- </section>
+    </ul>
+    <a href="/pets/<%= pet._id %>/edit">Edit Pet Detail</a>  
+  </section>
+
+  <form id="add-to-team" action="/pets/<%= pet._id %>/providers" method="POST"> 
+    <select name="providerId">
+      <%- providers.map(pr => `<option value="${pr._id}">${pr.name}</option>`).join('') %>
+    </select>
+    <button type="submit">Add to Team</button>
+  </form>
  <a href="/pets/index"> Go back to Pet Index</a>
  <a href="/users/index">Go back to Home Page</a>
  

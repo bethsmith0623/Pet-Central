@@ -9,12 +9,10 @@
 <body>
   <h1>Provider Detail</h1>
   <section id="provider-show-page">
-    <% user.providers.forEach(pr => { %>
-    <div>Name: <%= pr.name %></div>
-    <div>Type: <%= pr.type %></div>
-    <div>Services: <%= pr.services.join(',') %></div>
-    <a href="/providers/<%= pr._id %>/edit">Edit Provider Detail</a>
-  <% })%>
+    <div>Name: <%= provider.name %></div>
+    <div>Type: <%= provider.type %></div>
+    <div>Services: <%= provider.services.join(',') %></div>
+    <a href="/providers/<%= provider._id %>/edit">Edit Provider Detail</a>
   </section>
 
   <a href="/providers/index"> Go back to Provider Directory</a>

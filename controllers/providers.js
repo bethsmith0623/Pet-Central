@@ -10,24 +10,24 @@ module.exports = {
   delete: deleteProvider,
   edit, 
   update,
-  // addToTeam
+  addToTeam
 };
 
-// function addToTeam(req,res) {
-//   Pet.findById(req.params.id, function(err, pet) {
-//     pet.providers.push(req.body.providerID);
-//     console.log(req.body.providerID);
-//     pet.save(function(err) {
-//       res.redirect(`/pets/${pet._id}`);
-//     });
-//   });
-// };
+function addToTeam(req,res) {
+  Pet.findById(req.params.id, function(err, pet) {
+    pet.providers.push(provider._id);
+    console.log(provider._id);
+    pet.save(function(err) {
+      res.redirect(`/pets/${pet._id}`);
+    });
+  });
+};
 
 function update(req, res) {
-  providerID = req.params.id
-  Provider.findByIdAndUpdate(providerID, req.body,
+  providerId = req.params.id
+  Provider.findByIdAndUpdate(providerId, req.body,
     {new:true}, function (err, provider) {
-      res.redirect(`/providers/${providerID}`);
+      res.redirect(`/providers/${providerId}`);
     })
 }
 
@@ -73,11 +73,10 @@ function create(req, res) {
 
  
 function show(req,res) {
- User.findById(req.user._id)
- .populate('providers').exec(function(err, user) {
+ Provider.findById(req.params.id, function(err, provider) {
    res.render('providers/show', {
-     user
-   });
+    user: req.user,
+    provider});
  });
 }
 
