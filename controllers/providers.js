@@ -1,4 +1,5 @@
 const Provider = require('../models/provider');
+var User = require('../models/user');
 
 module.exports = {
   index,
@@ -32,7 +33,11 @@ function deleteProvider(req, res) {
 }
 
 function newProvider(req,res) {
-  res.render('providers/new');
+  Provider.find({}, function(err, providers){
+    res.render('providers/new', {
+      pet: 'Add Provider', providers
+    });
+  });
 }
 
 function create(req, res) {
@@ -43,28 +48,30 @@ function create(req, res) {
     if (req.body[key] === '') delete req.body[key];
   }
   var provider = new Provider(req.body);
-  provider.save(function(err){
-    if (err) return res.redirect('providers/new');
-    console.log(provider);
-    res.redirect(`/providers/${provider._id}`);
+  provider.save(function(err, provider){
+    User.findById(req.user._id, function(err, user) {
+      user.providers.push(provider._id)
+      user.save(function(err) {
+        if (err) return res.redirect('providers/new');
+        res.redirect(`/providers/${provider._id}`);
+      })
+    })
   });
 }
 
  
 function show(req,res) {
-  Provider.findById(req.params.id, function(err, provider){
-    console.log('provider', provider);
-    res.render('providers/show', {
-      name: provider.name,
-      type: provider.type,
-      id: provider._id,
-      services: provider.services
-    });
-  });
+ User.findById(req.user._id)
+ .populate('providers').exec(function(err, user) {
+   res.render('providers/show', {
+     user
+   });
+ });
 }
 
 function index(req, res) {
-  Provider.find({}, function(err, providers){
-    res.render('providers/index', {providers});
+  User.findById(req.user._id).populate('providers')
+    .exec(function(err, user){
+    res.render('providers/index', {user});
   });
 };

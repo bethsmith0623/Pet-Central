@@ -7,7 +7,7 @@ var userSchema = new mongoose.Schema ({
   googleId: String,
   pets: [{
     type: Schema.Types.ObjectId,
-    ref: 'Pets'
+    ref: 'Pet'
   }],
   providers: [{
     type: Schema.Types.ObjectId, 
@@ -17,4 +17,4 @@ var userSchema = new mongoose.Schema ({
   timestamps: true
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('User', userSchema, 'users');

@@ -11,7 +11,7 @@
 
   <table id="kennel">
     <tbody>
-      <% pets.forEach(function(pet, idx){ %>
+      <% user.pets.forEach(function(pet, idx){ %>
 
         <tr>
           <td><%= pet.name %></td>
@@ -26,5 +26,6 @@
   </table>
   <a href="/users/index">Go back to Home Page</a>
   <a href="/pets/new">Add a New Pet</a>
+
 </body>
 </html>
