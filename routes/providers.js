@@ -7,12 +7,17 @@ router.get('/', function(req, res, next) {
   res.send('./providers/index');
 });
 
-router.get('/index', providersCtrl.index);
-router.get('/new', providersCtrl.new);
-router.get('/:id', providersCtrl.show);
-router.post('/', providersCtrl.create);
-router.delete('/:id', providersCtrl.delete);
-router.get('/:id/edit', providersCtrl.edit);
-router.put('/:id', providersCtrl.update);
+router.get('/index', isLoggedIn, providersCtrl.index);
+router.get('/new', isLoggedIn, providersCtrl.new);
+router.get('/:id', isLoggedIn, providersCtrl.show);
+router.post('/', isLoggedIn, providersCtrl.create);
+router.delete('/:id', isLoggedIn, providersCtrl.delete);
+router.get('/:id/edit', isLoggedIn, providersCtrl.edit);
+router.put('/:id', isLoggedIn, providersCtrl.update);
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  res.redirect('/auth/google');
+}
 
 module.exports = router;

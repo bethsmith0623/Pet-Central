@@ -7,12 +7,19 @@ router.get('/', function(req, res, next) {
   res.send('./pets/index');
 });
 
-router.get('/index', petsCtrl.index);
-router.get('/new', petsCtrl.new);
-router.get('/:id', petsCtrl.show);
-router.post('/', petsCtrl.create);
-router.delete('/:id', petsCtrl.delete);
-router.get('/:id/edit', petsCtrl.edit);
-router.put('/:id', petsCtrl.update);
+router.get('/index', isLoggedIn, petsCtrl.index);
+router.get('/new', isLoggedIn, petsCtrl.new);
+router.get('/:id', isLoggedIn, petsCtrl.show);
+router.post('/', isLoggedIn, petsCtrl.create);
+router.delete('/:id', isLoggedIn, petsCtrl.delete);
+router.get('/:id/edit', isLoggedIn, petsCtrl.edit);
+router.put('/:id', isLoggedIn, petsCtrl.update);
+
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  res.redirect('/auth/google');
+}
+
 
 module.exports = router;

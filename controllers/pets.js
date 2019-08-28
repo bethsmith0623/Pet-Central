@@ -34,34 +34,29 @@ function deletePet(req, res){
 };
 
 function index(req, res) {
-  User.findById(req.user._id).populate('pets').exec(function(err, user) {
+  User.findById(req.user._id).populate('pets')
+    .exec(function(err, user) {
+    console.log(user)
     res.render('pets/index', {user});
   });
 };
+
 function show(req, res) {
-  User.findById(req.user._id).
-    populate('pets').exec(function(err, user) {
-    console.log(req.user.pet);
+  User.findById(req.user._id)
+  .populate('pets').exec(function(err, user) {
+    console.log(user)
     res.render('pets/show', {
-      name: pet.name, 
-      type: pet.type, 
-      breed: pet.breed, 
-      age: pet.age, 
-      id: pet._id,
-      healthConditions: pet.healthConditions, 
-      medications: pet.medications,
-      providers: pet.providers
+      user
     });
   });
 }
 
 function newPet(req, res) {
-  
   res.render('pets/new');
 };
 
 function create(req, res) {
-  console.log(req.body);
+
   req.body.healthConditions = req.body.healthConditions.replace(/\s*,\s*/g, ',');
   if (req.body.healthConditions) req.body.healthConditions = req.body.healthConditions.split(',');
   req.body.medications = req.body.medications.replace(/\s*,\s*/g, ',');
@@ -70,9 +65,13 @@ function create(req, res) {
     if (req.body[key] === '') delete req.body[key];
   }
   var pet = new Pet(req.body);
-  pet.save(function(err) {
-    if (err) return res.redirect('pets/new');
-    console.log(pet);
-    res.redirect(`/pets/${pet._id}`);
+  pet.save(function(err, pet) {
+    User.findById(req.user._id, function(err, user) {
+      user.pets.push(pet._id)
+      user.save(function(err) {
+        if (err) return res.redirect('pets/new');
+        res.redirect(`/pets/${pet._id}`);
+      })
+    })
   });
 }
