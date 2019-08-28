@@ -14,6 +14,7 @@ router.post('/', isLoggedIn, providersCtrl.create);
 router.delete('/:id', isLoggedIn, providersCtrl.delete);
 router.get('/:id/edit', isLoggedIn, providersCtrl.edit);
 router.put('/:id', isLoggedIn, providersCtrl.update);
+// router.post('pets/:id/providers', isLoggedIn, providersCtrl.addToTeam);
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();

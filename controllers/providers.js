@@ -1,5 +1,6 @@
 const Provider = require('../models/provider');
 var User = require('../models/user');
+var Pet = require('../models/pet');
 
 module.exports = {
   index,
@@ -8,8 +9,19 @@ module.exports = {
   create, 
   delete: deleteProvider,
   edit, 
-  update
+  update,
+  // addToTeam
 };
+
+// function addToTeam(req,res) {
+//   Pet.findById(req.params.id, function(err, pet) {
+//     pet.providers.push(req.body.providerID);
+//     console.log(req.body.providerID);
+//     pet.save(function(err) {
+//       res.redirect(`/pets/${pet._id}`);
+//     });
+//   });
+// };
 
 function update(req, res) {
   providerID = req.params.id

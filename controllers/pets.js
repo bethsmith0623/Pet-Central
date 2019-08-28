@@ -41,12 +41,20 @@ function index(req, res) {
   });
 };
 
+// function show(req, res) {
+//   User.findById(req.user._id)
+//   .populate('pets', /*'providers'*/).exec(function(err, user, providers) {
+//     console.log(user)
+//     res.render('pets/show', {
+//       user, /*providers*/
+//     });
+//   });
+// }
 function show(req, res) {
-  User.findById(req.user._id)
-  .populate('pets').exec(function(err, user) {
-    console.log(user)
-    res.render('pets/show', {
-      user
+  Pet.findById(req.params.id).populate('providers').exec(function(err, pet) {
+        res.render('pets/show', {
+        pet,
+        user: req.user,
     });
   });
 }

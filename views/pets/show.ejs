@@ -9,16 +9,17 @@
 <body>
   <h1>Pet Detail</h1>
  <section id="pet-show-page">
-   <% user.pets.forEach(p => { %>
-    <div>Name: <%= p.name %></div>
-    <div>Type: <%= p.type %></div>
-    <div>Breed: <%= p.breed %></div>
-    <div>Age: <%= p.age %></div>
-    <div>Health Conditions: <%= p.healthConditions.join(',') %></div>
-    <div>Medication: <%= p.medications.join(',') %></div>
-    <div>Providers: <%= p.providers.join(',') %></div>
-    <a href="/pets/<%= p._id %>/edit">Edit Pet Detail</a>
-    <% }) %>
+    <div>Name: <%= pet.name %></div>
+    <div>Type: <%= pet.type %></div>
+    <div>Breed: <%= pet.breed %></div>
+    <div>Age: <%= pet.age %></div>
+    <div>Health Conditions: <%= pet.healthConditions.join(',') %></div>
+    <div>Medication: <%= pet.medications.join(',') %></div>
+    <div>Providers: </div>
+    <!-- <ul>
+      <%- pet.providers.map(pr => `<li>${pr.name}</li>`).join(',') %>
+    </ul> -->
+    <a href="/pets/<%= pet._id %>/edit">Edit Pet Detail</a>
    
  </section>
  <a href="/pets/index"> Go back to Pet Index</a>
