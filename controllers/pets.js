@@ -60,10 +60,10 @@ function newPet(req, res) {
 
 function create(req, res) {
 
-  req.body.healthConditions = req.body.healthConditions.replace(/\s*,\s*/g, ',');
-  if (req.body.healthConditions) req.body.healthConditions = req.body.healthConditions.split(',');
-  req.body.medications = req.body.medications.replace(/\s*,\s*/g, ',');
-  if (req.body.medications) req.body.medications = req.body.medications.split(',');
+  req.body.healthConditions = req.body.healthConditions.replace(/\s*,\s*/g, ', ');
+  if (req.body.healthConditions) req.body.healthConditions = req.body.healthConditions.split(', ');
+  req.body.medications = req.body.medications.replace(/\s*,\s*/g, ', ');
+  if (req.body.medications) req.body.medications = req.body.medications.split(',s');
   for(let key in req.body){
     if (req.body[key] === '') delete req.body[key];
   }

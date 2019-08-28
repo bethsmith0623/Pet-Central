@@ -13,21 +13,31 @@
     <div>Type: <%= pet.type %></div>
     <div>Breed: <%= pet.breed %></div>
     <div>Age: <%= pet.age %></div>
-    <div>Health Conditions: <%= pet.healthConditions.join(',') %></div>
-    <div>Medication: <%= pet.medications.join(',') %></div>
+    <div>Health Conditions: </div>
+    <ul>
+      <li><%= pet.healthConditions.join(', ') %></li>
+    </ul>
+
+    <div>Medication: </div>
+    <ul>
+       <li> <%= pet.medications.join(', ') %></li>
+    </ul>
+
     <div>Providers: </div>
     <ul>
-      <%- pet.providers.map(pr => `<li>${pr.name}</li>`).join(',') %>
+      <%- pet.providers.map(pr => `<li>${pr.name} - ${pr.type}</li>`).join('') %>
     </ul>
     <a href="/pets/<%= pet._id %>/edit">Edit Pet Detail</a>  
+<br>
   </section>
-
+<br>
   <form id="add-to-team" action="/pets/<%= pet._id %>/providers" method="POST"> 
     <select name="providerId">
       <%- providers.map(pr => `<option value="${pr._id}">${pr.name}</option>`).join('') %>
     </select>
     <button type="submit">Add to Team</button>
   </form>
+  <hr>
  <a href="/pets/index"> Go back to Pet Index</a>
  <a href="/users/index">Go back to Home Page</a>
  

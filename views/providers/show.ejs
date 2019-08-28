@@ -9,12 +9,13 @@
 <body>
   <h1>Provider Detail</h1>
   <section id="provider-show-page">
-    <div>Name: <%= provider.name %></div>
-    <div>Type: <%= provider.type %></div>
-    <div>Services: <%= provider.services.join(',') %></div>
+    <div>Name:  <%= provider.name %></div>
+    <div>Type:  <%= provider.type %></div>
+    <div>Services:  <%= provider.services.join(', ') %></div>
+    <br>
     <a href="/providers/<%= provider._id %>/edit">Edit Provider Detail</a>
   </section>
-
+<hr>
   <a href="/providers/index"> Go back to Provider Directory</a>
   <a href="/users/index">Go back to Home Page</a>
 </body>
