@@ -15,8 +15,7 @@ module.exports = {
 
 function addToTeam(req,res) {
   Pet.findById(req.params.id, function(err, pet) {
-    pet.providers.push(provider._id);
-    console.log(provider._id);
+    pet.providers.push(req.body.providerId);
     pet.save(function(err) {
       res.redirect(`/pets/${pet._id}`);
     });
