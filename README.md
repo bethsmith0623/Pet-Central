@@ -45,6 +45,6 @@ Edit Pet and Provider:
 #### **Next Steps**
 
 COMING SOON: 
-> * Add ability to un-link providers from pets.
+> * Ability to un-link providers from pets.
 > * Sync to your Google calendar to schedule appointments and medication reminders. 
 > * Connect to provider profiles within the app to communicate directly with your pet's care team.
