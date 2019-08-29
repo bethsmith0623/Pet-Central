@@ -5,7 +5,7 @@ var User = require('../models/user');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { user: req.user, title: 'Pet Central' });
+  res.render('index', { user: req.user});
 });
 
 //Google OAuth login route

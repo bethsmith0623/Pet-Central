@@ -1,19 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Pet Central</title>
-</head>
-<body>
+<%- include('../partials/headeruser') %>
+
   <h1>Pet Central Users Portal</h1>
 
   <div>
     <h3>Pets</h3>
     <a href="/pets/index"><input type="button" value="Your Kennel"></a>
     <a href="/pets/new"><input type="button" value="Add a New Pet"></a>
-
   </div>
 
   <div>
@@ -22,13 +14,5 @@
     <a href="/providers/new"><input type="button" value="Add a New Provider"></a>
   </div>
 
-  <div>
-    <% if (user) { %>
-      <a href="/logout">Log Out</a>
-    <% } else { %>
-      <a href="/auth/google">Login with Google</a>
-    <% } %>
-  </div>
   
-</body>
-</html>
+  <%- include('../partials/footer')%>

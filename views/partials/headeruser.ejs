@@ -12,12 +12,10 @@
     </div>
     <nav id="nav-bar">
         
-      <div>
-        <% if (user) { %>
-          <a href="/logout">Log Out</a>
-          <% } else { %>
-            <a href="/auth/google">Login with Google</a>
-            <% } %>
-      </div>
+      <div><a href="/logout">Log Out</a></div>
+      <div><a href="/users/index">Home</a></div>
+      <div><a href="/pets/index">Kennel</a></div>
+      <div><a href="/pets/new">Add a Pet</a></div>
+      <div><a href="/providers/index">Providers</a></div>
+      <div><a href="providers/new">Add a Provider</a></div>
     </nav>
-      
