@@ -8,7 +8,9 @@ HTML   |  CSS  |  JavaScript  |  Node.js  | Express.js |  MongoDB  |  Mongoose  
 
 #### **Getting Started**
 
-(http://pet-central.herokuapp.com/ "Pet Central")
+[Wireframe and ERD] (https://www.lucidchart.com/invitations/accept/86c01012-d136-4989-b681-2e59f419e4a2)
+
+[Pet Central Link] (http://pet-central.herokuapp.com/ "Pet Central")
 
 Screenshots: 
 ![Visitor Landing Page](https://i.imgur.com/UwTOOG5l.png)
