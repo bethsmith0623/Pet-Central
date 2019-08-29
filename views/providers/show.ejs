@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Pet Central</title>
-</head>
-<body>
-  <h1>Provider Detail</h1>
+<%- include('../partials/headeruser') %>
+
+  <h3 class="center-align">Provider Detail</h3>
+  <div class="container">
   <section id="provider-show-page">
     <div>Name:  <%= provider.name %></div>
     <div>Type:  <%= provider.type %></div>
@@ -15,8 +9,8 @@
     <br>
     <a href="/providers/<%= provider._id %>/edit">Edit Provider Detail</a>
   </section>
-<hr>
-  <a href="/providers/index"> Go back to Provider Directory</a>
-  <a href="/users/index">Go back to Home Page</a>
-</body>
-</html>
+  </div>
+
+
+
+  <%- include('../partials/footer')%>

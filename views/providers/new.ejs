@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Pet Central</title>
-</head>
-<body>
-  <h1>Add a New Provider</h1>
+<%- include('../partials/headeruser') %>
+
+  <h3 class="center-align">Add a New Provider</h3>
+  <div class="container">
   <form action="/providers" method="POST">
     <label>Name</label>
     <input type="text" name="name" required>
@@ -24,10 +18,13 @@
       <option value="other">Other</option>
     </select>
 
-    <label>Services (use commas to separate)</label>
-    <input type="text" name="services" required>
-
-    <input type="submit" value="Add Provider to Directory">
+    <div>
+      <label>Services (use commas to separate)</label>
+      <input type="text" name="services" required>
+    </div>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="material-icons right">send</i>
+      </button>
   </form>
-</body>
-</html>
+  </div>
+  <%- include('../partials/footer')%>
