@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Pet Central</title>
-</head>
-<body>
+<%- include('../partials/headeruser') %>
+
   <h1>Provider Index</h1>
 
   <table id="directory">
@@ -24,9 +17,6 @@
         <% }); %>
       </tbody>
     </table>
-  <a href="/users/index">Go back to Home Page</a>
-  <a href="/providers/new">Add a New Provider</a>
-  <a href="/pets/index">Go to Kennel</a>
 
-</body>
-</html>
+
+  <%- include('../partials/footer')%>

@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Pet Central</title>
-</head>
-<body>
+<%- include('../partials/headeruser') %>
+
   <h1>Edit Provider Detail</h1>
   <form action="/providers/<%= provider._id %>?_method=PUT" method="POST" autocomplete="off">
     Name: <input type="text" name="name" value="<%= provider.name %>"> 
     Services: <input type="text" name="services" value="<%= provider.services.join(',') %>">
     <button type="submit">Save Changes</button>
   </form>
-</body>
-</html>
+
+  <%- include('../partials/footer')%>
