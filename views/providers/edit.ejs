@@ -1,10 +1,11 @@
 <%- include('../partials/headeruser') %>
 
   <h3 class="center-align">Edit Provider Detail</h3>
-  <form action="/providers/<%= provider._id %>?_method=PUT" method="POST" autocomplete="off">
-    Name: <input type="text" name="name" value="<%= provider.name %>"> 
-    Services: <input type="text" name="services" value="<%= provider.services.join(', ') %>">
-    <button type="submit">Save Changes</button>
-  </form>
-
+  <div class="container">
+    <form action="/providers/<%= provider._id %>?_method=PUT" method="POST" autocomplete="off">
+      Name: <input type="text" name="name" value="<%= provider.name %>"> 
+      Services: <input type="text" name="services" value="<%= provider.services.join(', ') %>">
+      <button type="submit">Save Changes</button>
+    </form>
+  </div>
   <%- include('../partials/footer')%>
