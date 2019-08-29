@@ -1,18 +1,30 @@
 <%- include('../partials/headeruser') %>
 
-  <h1>Pet Central Users Portal</h1>
+<h3 class="center-align">Pet Central Users Portal</h3>
+<div class="center-align">
+  <p>We recommend adding providers first so they will be available to link to your pet.</p>
+</div>
 
-  <div>
-    <h3>Pets</h3>
+<div class="row">
+  <div class="col s6 center-align">
+    <h4>Pets</h4>
+    <div id="dirpic">
+        <a href="https://imgur.com/9rA8D1x"><img src="https://i.imgur.com/9rA8D1x.jpg?1" title="source: imgur.com" /></a>
+    </div>
+    <br>
     <a href="/pets/index"><input type="button" value="Your Kennel"></a>
     <a href="/pets/new"><input type="button" value="Add a New Pet"></a>
   </div>
 
-  <div>
-    <h3>Providers</h3>
+  <div class="col s6 center-align">
+    <h4>Providers</h4>
+    <div id="dirpic">
+        <a href="https://imgur.com/a7c2McO"><img src="https://i.imgur.com/a7c2McO.jpg?3" title="source: imgur.com" /></a>
+    </div>
+    <br>
     <a href="/providers/index"><input type="button" value="Providers Directory"></a>
     <a href="/providers/new"><input type="button" value="Add a New Provider"></a>
   </div>
-
+</div>
   
   <%- include('../partials/footer')%>

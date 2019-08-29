@@ -1,7 +1,7 @@
 <%- include('../partials/headeruser') %>
 
-  <h1>Pet Central Kennel</h1>
-
+  <h3 class="center-align">Your Kennel</h3>
+<div class="container">
   <table id="kennel">
     <tbody>
       <% user.pets.forEach(function(pet, idx){ %>
@@ -9,13 +9,14 @@
         <tr>
           <td><%= pet.name %></td>
           <td><%= pet.type %></td>
+          <td><a href="/pets/<%= pet._id %>">Details</a></td>
           <td><form action="/pets/<%= pet._id %>?_method=DELETE" method="POST" class="delete-form">
-            <button type="submit">X</button>
+            <button class="btn-flat" type="submit">X</button>
           </form></td>
         </tr>
-        <td><a href="/pets/<%= pet._id %>">Details</a></td>
         <% }); %>
     </tbody>
   </table>
+</div>
 
   <%- include('../partials/footer')%>

@@ -1,13 +1,42 @@
-body {
-  padding: 0px 50px 50px 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+body, form, option {
+  padding: 10px;
+  font-family: 'Original Surfer', cursive;
+}
+
+p {
+  font-family: 'Original Surfer', cursive;
 }
 
 a {
-  color: #00B7FF;
+  color:teal;
+}
+
+input {
+  color: black;
+  background-color: lightpink;
+  border: 5px solid teal;
+  border-radius: 7px;
 }
 
 .image {
   max-height: 350px
 }
 
+h1, h3, h4 {
+  font-family: 'Bubblegum Sans', cursive;
+  justify-items: center;
+}
+
+td {
+  font-family: 'Gorditas', cursive;
+}
+
+#dirpic {
+  border: 10px solid teal;
+  border-radius:  10px;
+  margin: 20px 180px 0px 180px;
+}
+
+form {
+
+}
