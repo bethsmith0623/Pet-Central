@@ -22,24 +22,24 @@ User's Portal:
 
 ![](https://i.imgur.com/7qt7u8Ml.png)
 
-Kennel:                                Provider Directory:
+Kennel and Provider Directory:
 
-![](https://i.imgur.com/4aulcLHm.png)  ![](https://i.imgur.com/vTYSfzMm.png)
-
-
-Pet Detail:                            Provider Detail:
-
-![](https://i.imgur.com/Kc8A6ZLm.png)  ![](https://i.imgur.com/vZLztwMm.png)
+![](https://i.imgur.com/Jz3gNYqh.png)  ![](https://i.imgur.com/SVP3dcwh.png)
 
 
-New Pet:                                New Provider:
+Pet and Provider Detail:
 
-![](https://i.imgur.com/xwaFGWxm.png)  ![](https://i.imgur.com/NxZTiw9m.png)
+![](https://i.imgur.com/rW3LzQ8h.png)  ![](https://i.imgur.com/bKjlc6ih.png)
 
 
-Edit Pet:                               Edit Provider:
+New Pet and Provider:
 
-![](https://i.imgur.com/3uRuUGsm.png)  ![](https://i.imgur.com/RCockjMm.png)
+![](https://i.imgur.com/jsJdgzzh.png)  ![](https://i.imgur.com/9wtjmRlh.png)
+
+
+Edit Pet and Provider:
+
+![](https://i.imgur.com/OcCJRClh.png)  ![](https://i.imgur.com/bx8LMakh.png)
 
 
 #### **Next Steps**
